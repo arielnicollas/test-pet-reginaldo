@@ -1,0 +1,21 @@
+# # Use a imagem base do Node.js
+FROM node:14
+
+# # Defina o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# # Copie os arquivos de origem para o diretório de trabalho
+COPY package.json .
+
+# # Instale as dependências do projeto
+RUN npm install
+
+# # Copie todo o código-fonte para o diretório de trabalho
+COPY . .
+
+# Defina a porta que o contêiner expõe
+EXPOSE 4000
+
+# Comando para iniciar o servidor
+CMD ["npm" ,"run", "android"]
+
